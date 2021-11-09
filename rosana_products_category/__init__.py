@@ -1,0 +1,1 @@
+default_app_config = "rosana_products_category.apps.RosanaProductsCategoryConfig"

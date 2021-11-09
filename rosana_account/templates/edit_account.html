@@ -1,0 +1,47 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load render_partial %}
+{% block content %}
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="/user" class="btn btn-link">پنل کاربری</a></li>
+                    <li class="list-group-item"><a href="/user/edit" class="btn btn-link">ویرایش اطلاعات</a></li>
+                    <li class="list-group-item"><a href="/logout" class="btn btn-link">خروج</a></li>
+                </ul>
+            </div>
+    </div>
+    </div>
+
+    <div class="col-md-4">
+
+     <form id="main-contact-form" class="contact-form row" name="contact-form" method="post"
+                              action="">
+                            {% csrf_token %}
+                            <div class="form-group col-md-6">
+                                {{ edit_form.first_name }}
+                                {% for error in edit_form.first_name.errors %}
+                                    <p class="text-danger">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                {{ edit_form.last_name }}
+                                {% for error in edit_form.last_name.errors %}
+                                    <p class="text-danger">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="submit" name="submit" class="btn btn-primary pull-right" value="ارسـال">
+                            </div>
+                        </form>
+
+
+
+    </div>
+
+
+
+
+{% endblock %}
